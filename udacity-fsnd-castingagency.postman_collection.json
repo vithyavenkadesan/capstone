@@ -1,0 +1,1123 @@
+{
+	"info": {
+		"_postman_id": "dfee62e0-6445-415d-a288-06fb48363a17",
+		"name": "udacity-fsnd-castingagency",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Casting Director",
+			"item": [
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.drinks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTMwNDQsImV4cCI6MTY4Mzk2MDI0NCwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJnZXQ6YWN0b3ItZGV0YWlsIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZS1kZXRhaWwiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.N-3MTtdc2WwxMxDQcR9_iGzpiu8RETTHVcW7iTD_KAsR10FMs5cAia0J1nUP1PbW1ZOFnAcRZqN6tPdrPgoKrNm6y0V2R9ZC3r6tSWTG0Umo1j9dJBOfqrAgtgSy2o2rMWRxxwFC0mWDV5spZlTjckE16tg9Iaz3AJgICF8RExMg_1h_xb7QQLf_cArI-YyFhI7rctya7O75GQTqk7waIxDw0BCUf2lp2nkx78Gpx9lzJAJ1rl7iuNslOWEAI37rXfEDejwCyb5WH8yJl47G1_twOaIp7_7TqYasC2MWNFblnHhCRwEgzGMSMKla9hdbBA2hktyqaw-3gF3Zc0Mprg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/<actor_id>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTMwNDQsImV4cCI6MTY4Mzk2MDI0NCwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJnZXQ6YWN0b3ItZGV0YWlsIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZS1kZXRhaWwiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.N-3MTtdc2WwxMxDQcR9_iGzpiu8RETTHVcW7iTD_KAsR10FMs5cAia0J1nUP1PbW1ZOFnAcRZqN6tPdrPgoKrNm6y0V2R9ZC3r6tSWTG0Umo1j9dJBOfqrAgtgSy2o2rMWRxxwFC0mWDV5spZlTjckE16tg9Iaz3AJgICF8RExMg_1h_xb7QQLf_cArI-YyFhI7rctya7O75GQTqk7waIxDw0BCUf2lp2nkx78Gpx9lzJAJ1rl7iuNslOWEAI37rXfEDejwCyb5WH8yJl47G1_twOaIp7_7TqYasC2MWNFblnHhCRwEgzGMSMKla9hdbBA2hktyqaw-3gF3Zc0Mprg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}//actors/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"",
+								"actors",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTMwNDQsImV4cCI6MTY4Mzk2MDI0NCwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJnZXQ6YWN0b3ItZGV0YWlsIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZS1kZXRhaWwiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.N-3MTtdc2WwxMxDQcR9_iGzpiu8RETTHVcW7iTD_KAsR10FMs5cAia0J1nUP1PbW1ZOFnAcRZqN6tPdrPgoKrNm6y0V2R9ZC3r6tSWTG0Umo1j9dJBOfqrAgtgSy2o2rMWRxxwFC0mWDV5spZlTjckE16tg9Iaz3AJgICF8RExMg_1h_xb7QQLf_cArI-YyFhI7rctya7O75GQTqk7waIxDw0BCUf2lp2nkx78Gpx9lzJAJ1rl7iuNslOWEAI37rXfEDejwCyb5WH8yJl47G1_twOaIp7_7TqYasC2MWNFblnHhCRwEgzGMSMKla9hdbBA2hktyqaw-3gF3Zc0Mprg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/>movie_id>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTMwNDQsImV4cCI6MTY4Mzk2MDI0NCwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJnZXQ6YWN0b3ItZGV0YWlsIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZS1kZXRhaWwiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.N-3MTtdc2WwxMxDQcR9_iGzpiu8RETTHVcW7iTD_KAsR10FMs5cAia0J1nUP1PbW1ZOFnAcRZqN6tPdrPgoKrNm6y0V2R9ZC3r6tSWTG0Umo1j9dJBOfqrAgtgSy2o2rMWRxxwFC0mWDV5spZlTjckE16tg9Iaz3AJgICF8RExMg_1h_xb7QQLf_cArI-YyFhI7rctya7O75GQTqk7waIxDw0BCUf2lp2nkx78Gpx9lzJAJ1rl7iuNslOWEAI37rXfEDejwCyb5WH8yJl47G1_twOaIp7_7TqYasC2MWNFblnHhCRwEgzGMSMKla9hdbBA2hktyqaw-3gF3Zc0Mprg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTMwNDQsImV4cCI6MTY4Mzk2MDI0NCwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJnZXQ6YWN0b3ItZGV0YWlsIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZS1kZXRhaWwiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.N-3MTtdc2WwxMxDQcR9_iGzpiu8RETTHVcW7iTD_KAsR10FMs5cAia0J1nUP1PbW1ZOFnAcRZqN6tPdrPgoKrNm6y0V2R9ZC3r6tSWTG0Umo1j9dJBOfqrAgtgSy2o2rMWRxxwFC0mWDV5spZlTjckE16tg9Iaz3AJgICF8RExMg_1h_xb7QQLf_cArI-YyFhI7rctya7O75GQTqk7waIxDw0BCUf2lp2nkx78Gpx9lzJAJ1rl7iuNslOWEAI37rXfEDejwCyb5WH8yJl47G1_twOaIp7_7TqYasC2MWNFblnHhCRwEgzGMSMKla9hdbBA2hktyqaw-3gF3Zc0Mprg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTMwNDQsImV4cCI6MTY4Mzk2MDI0NCwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJnZXQ6YWN0b3ItZGV0YWlsIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZS1kZXRhaWwiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.N-3MTtdc2WwxMxDQcR9_iGzpiu8RETTHVcW7iTD_KAsR10FMs5cAia0J1nUP1PbW1ZOFnAcRZqN6tPdrPgoKrNm6y0V2R9ZC3r6tSWTG0Umo1j9dJBOfqrAgtgSy2o2rMWRxxwFC0mWDV5spZlTjckE16tg9Iaz3AJgICF8RExMg_1h_xb7QQLf_cArI-YyFhI7rctya7O75GQTqk7waIxDw0BCUf2lp2nkx78Gpx9lzJAJ1rl7iuNslOWEAI37rXfEDejwCyb5WH8yJl47G1_twOaIp7_7TqYasC2MWNFblnHhCRwEgzGMSMKla9hdbBA2hktyqaw-3gF3Zc0Mprg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Karthi\",\r\n    \"gender\": \"Male\",\r\n    \"dob\": \"1989-09-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/<actor-id>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTMwNDQsImV4cCI6MTY4Mzk2MDI0NCwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJnZXQ6YWN0b3ItZGV0YWlsIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZS1kZXRhaWwiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.N-3MTtdc2WwxMxDQcR9_iGzpiu8RETTHVcW7iTD_KAsR10FMs5cAia0J1nUP1PbW1ZOFnAcRZqN6tPdrPgoKrNm6y0V2R9ZC3r6tSWTG0Umo1j9dJBOfqrAgtgSy2o2rMWRxxwFC0mWDV5spZlTjckE16tg9Iaz3AJgICF8RExMg_1h_xb7QQLf_cArI-YyFhI7rctya7O75GQTqk7waIxDw0BCUf2lp2nkx78Gpx9lzJAJ1rl7iuNslOWEAI37rXfEDejwCyb5WH8yJl47G1_twOaIp7_7TqYasC2MWNFblnHhCRwEgzGMSMKla9hdbBA2hktyqaw-3gF3Zc0Mprg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"dob\": \"1987-09-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/actors/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/<movie-id>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTMwNDQsImV4cCI6MTY4Mzk2MDI0NCwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJnZXQ6YWN0b3ItZGV0YWlsIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZS1kZXRhaWwiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.N-3MTtdc2WwxMxDQcR9_iGzpiu8RETTHVcW7iTD_KAsR10FMs5cAia0J1nUP1PbW1ZOFnAcRZqN6tPdrPgoKrNm6y0V2R9ZC3r6tSWTG0Umo1j9dJBOfqrAgtgSy2o2rMWRxxwFC0mWDV5spZlTjckE16tg9Iaz3AJgICF8RExMg_1h_xb7QQLf_cArI-YyFhI7rctya7O75GQTqk7waIxDw0BCUf2lp2nkx78Gpx9lzJAJ1rl7iuNslOWEAI37rXfEDejwCyb5WH8yJl47G1_twOaIp7_7TqYasC2MWNFblnHhCRwEgzGMSMKla9hdbBA2hktyqaw-3gF3Zc0Mprg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"release_date\": \"2023-09-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTMwNDQsImV4cCI6MTY4Mzk2MDI0NCwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJnZXQ6YWN0b3ItZGV0YWlsIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZS1kZXRhaWwiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.N-3MTtdc2WwxMxDQcR9_iGzpiu8RETTHVcW7iTD_KAsR10FMs5cAia0J1nUP1PbW1ZOFnAcRZqN6tPdrPgoKrNm6y0V2R9ZC3r6tSWTG0Umo1j9dJBOfqrAgtgSy2o2rMWRxxwFC0mWDV5spZlTjckE16tg9Iaz3AJgICF8RExMg_1h_xb7QQLf_cArI-YyFhI7rctya7O75GQTqk7waIxDw0BCUf2lp2nkx78Gpx9lzJAJ1rl7iuNslOWEAI37rXfEDejwCyb5WH8yJl47G1_twOaIp7_7TqYasC2MWNFblnHhCRwEgzGMSMKla9hdbBA2hktyqaw-3gF3Zc0Mprg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"PS-2\",\r\n    \"release_date\": \"2023-04-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Casting Assistant",
+			"item": [
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.drinks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjk0ZjkzOTM2NWE1NjhmMTliYSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTc2NTIsImV4cCI6MTY4Mzk2NDg1MiwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3Rvci1kZXRhaWwiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllLWRldGFpbCIsImdldDptb3ZpZXMiXX0.nQupF0cRLInSHLLtSzNstuxh8v8WqDyMixWHWJLZy6bUVvkH-8wBJd3Hb4p76jOUDK758kuDLkR0TdbwJ4E2pGd0rdYJ_fC4d2LseoEKrbuyVT11TbAPKM4sy-HAgPM2xWiFr6PQxc1dysm-HsvDNmxDlQ_MDKmVYxEEV4ataBLHG9Q-vFslxMaRfRl9NkP9VToilhGjyfIu3q_laQO9ig_UNUMoznroy3Hg8lLAN3hHfhGvUajjvsrqmdC-iU6EQuz-Ojeq1yOeH77zmkXgn5Je_BBoE4WDLruWkp3DKsvPsC__3btWUPiddNwkCOHx04JAKLYwboC5L85BB9-Yeg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/<actor_id>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjk0ZjkzOTM2NWE1NjhmMTliYSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTc2NTIsImV4cCI6MTY4Mzk2NDg1MiwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3Rvci1kZXRhaWwiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllLWRldGFpbCIsImdldDptb3ZpZXMiXX0.nQupF0cRLInSHLLtSzNstuxh8v8WqDyMixWHWJLZy6bUVvkH-8wBJd3Hb4p76jOUDK758kuDLkR0TdbwJ4E2pGd0rdYJ_fC4d2LseoEKrbuyVT11TbAPKM4sy-HAgPM2xWiFr6PQxc1dysm-HsvDNmxDlQ_MDKmVYxEEV4ataBLHG9Q-vFslxMaRfRl9NkP9VToilhGjyfIu3q_laQO9ig_UNUMoznroy3Hg8lLAN3hHfhGvUajjvsrqmdC-iU6EQuz-Ojeq1yOeH77zmkXgn5Je_BBoE4WDLruWkp3DKsvPsC__3btWUPiddNwkCOHx04JAKLYwboC5L85BB9-Yeg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}//actors/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"",
+								"actors",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjk0ZjkzOTM2NWE1NjhmMTliYSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTc2NTIsImV4cCI6MTY4Mzk2NDg1MiwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3Rvci1kZXRhaWwiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllLWRldGFpbCIsImdldDptb3ZpZXMiXX0.nQupF0cRLInSHLLtSzNstuxh8v8WqDyMixWHWJLZy6bUVvkH-8wBJd3Hb4p76jOUDK758kuDLkR0TdbwJ4E2pGd0rdYJ_fC4d2LseoEKrbuyVT11TbAPKM4sy-HAgPM2xWiFr6PQxc1dysm-HsvDNmxDlQ_MDKmVYxEEV4ataBLHG9Q-vFslxMaRfRl9NkP9VToilhGjyfIu3q_laQO9ig_UNUMoznroy3Hg8lLAN3hHfhGvUajjvsrqmdC-iU6EQuz-Ojeq1yOeH77zmkXgn5Je_BBoE4WDLruWkp3DKsvPsC__3btWUPiddNwkCOHx04JAKLYwboC5L85BB9-Yeg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/>movie_id>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjk0ZjkzOTM2NWE1NjhmMTliYSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTc2NTIsImV4cCI6MTY4Mzk2NDg1MiwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3Rvci1kZXRhaWwiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllLWRldGFpbCIsImdldDptb3ZpZXMiXX0.nQupF0cRLInSHLLtSzNstuxh8v8WqDyMixWHWJLZy6bUVvkH-8wBJd3Hb4p76jOUDK758kuDLkR0TdbwJ4E2pGd0rdYJ_fC4d2LseoEKrbuyVT11TbAPKM4sy-HAgPM2xWiFr6PQxc1dysm-HsvDNmxDlQ_MDKmVYxEEV4ataBLHG9Q-vFslxMaRfRl9NkP9VToilhGjyfIu3q_laQO9ig_UNUMoznroy3Hg8lLAN3hHfhGvUajjvsrqmdC-iU6EQuz-Ojeq1yOeH77zmkXgn5Je_BBoE4WDLruWkp3DKsvPsC__3btWUPiddNwkCOHx04JAKLYwboC5L85BB9-Yeg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjk0ZjkzOTM2NWE1NjhmMTliYSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NTc2NTIsImV4cCI6MTY4Mzk2NDg1MiwiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3Rvci1kZXRhaWwiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllLWRldGFpbCIsImdldDptb3ZpZXMiXX0.nQupF0cRLInSHLLtSzNstuxh8v8WqDyMixWHWJLZy6bUVvkH-8wBJd3Hb4p76jOUDK758kuDLkR0TdbwJ4E2pGd0rdYJ_fC4d2LseoEKrbuyVT11TbAPKM4sy-HAgPM2xWiFr6PQxc1dysm-HsvDNmxDlQ_MDKmVYxEEV4ataBLHG9Q-vFslxMaRfRl9NkP9VToilhGjyfIu3q_laQO9ig_UNUMoznroy3Hg8lLAN3hHfhGvUajjvsrqmdC-iU6EQuz-Ojeq1yOeH77zmkXgn5Je_BBoE4WDLruWkp3DKsvPsC__3btWUPiddNwkCOHx04JAKLYwboC5L85BB9-Yeg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"PS-2\",\r\n    \"release_date\": \"2023-04-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Executive Prdocuer",
+			"item": [
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.drinks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NjA1NDcsImV4cCI6MTY4Mzk2Nzc0NywiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9yLWRldGFpbCIsImdldDphY3RvcnMiLCJnZXQ6bW92aWUtZGV0YWlsIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.uZDoidey3IyZeNL0I96wOB5mbDilJsIk7Y1BOf7o6TBrumkAPTLAVX0oO8so1iv97EfOdKgiXF_i0D0FHYctGCvk9w-2xB9EFoSCjK7SkIV1ZqpvkdXC-htjcgC21TC8eWE9966ic7bYOOo5tr-5HrpUgxxIvSbhqA5n_Kaw4Mih-KXCqeSQe4tCRvfhDR2sgKi2iqDR6Ua0sr27FNpy2NVMSr52uAbAcK55NPrkAqbqOtARSInN_UpLYpmqS7S8m66Wj16QPngSlfe79l6PFIa-bCmSL_qjKZegdUbOPhEz88p_8eUtPurITm9v1jM1iocNoKA0htJFmHDBUP7lGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/<actor_id>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NjA1NDcsImV4cCI6MTY4Mzk2Nzc0NywiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9yLWRldGFpbCIsImdldDphY3RvcnMiLCJnZXQ6bW92aWUtZGV0YWlsIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.uZDoidey3IyZeNL0I96wOB5mbDilJsIk7Y1BOf7o6TBrumkAPTLAVX0oO8so1iv97EfOdKgiXF_i0D0FHYctGCvk9w-2xB9EFoSCjK7SkIV1ZqpvkdXC-htjcgC21TC8eWE9966ic7bYOOo5tr-5HrpUgxxIvSbhqA5n_Kaw4Mih-KXCqeSQe4tCRvfhDR2sgKi2iqDR6Ua0sr27FNpy2NVMSr52uAbAcK55NPrkAqbqOtARSInN_UpLYpmqS7S8m66Wj16QPngSlfe79l6PFIa-bCmSL_qjKZegdUbOPhEz88p_8eUtPurITm9v1jM1iocNoKA0htJFmHDBUP7lGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}//actors/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"",
+								"actors",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NjA1NDcsImV4cCI6MTY4Mzk2Nzc0NywiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9yLWRldGFpbCIsImdldDphY3RvcnMiLCJnZXQ6bW92aWUtZGV0YWlsIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.uZDoidey3IyZeNL0I96wOB5mbDilJsIk7Y1BOf7o6TBrumkAPTLAVX0oO8so1iv97EfOdKgiXF_i0D0FHYctGCvk9w-2xB9EFoSCjK7SkIV1ZqpvkdXC-htjcgC21TC8eWE9966ic7bYOOo5tr-5HrpUgxxIvSbhqA5n_Kaw4Mih-KXCqeSQe4tCRvfhDR2sgKi2iqDR6Ua0sr27FNpy2NVMSr52uAbAcK55NPrkAqbqOtARSInN_UpLYpmqS7S8m66Wj16QPngSlfe79l6PFIa-bCmSL_qjKZegdUbOPhEz88p_8eUtPurITm9v1jM1iocNoKA0htJFmHDBUP7lGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/>movie_id>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NjA1NDcsImV4cCI6MTY4Mzk2Nzc0NywiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9yLWRldGFpbCIsImdldDphY3RvcnMiLCJnZXQ6bW92aWUtZGV0YWlsIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.uZDoidey3IyZeNL0I96wOB5mbDilJsIk7Y1BOf7o6TBrumkAPTLAVX0oO8so1iv97EfOdKgiXF_i0D0FHYctGCvk9w-2xB9EFoSCjK7SkIV1ZqpvkdXC-htjcgC21TC8eWE9966ic7bYOOo5tr-5HrpUgxxIvSbhqA5n_Kaw4Mih-KXCqeSQe4tCRvfhDR2sgKi2iqDR6Ua0sr27FNpy2NVMSr52uAbAcK55NPrkAqbqOtARSInN_UpLYpmqS7S8m66Wj16QPngSlfe79l6PFIa-bCmSL_qjKZegdUbOPhEz88p_8eUtPurITm9v1jM1iocNoKA0htJFmHDBUP7lGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NjA1NDcsImV4cCI6MTY4Mzk2Nzc0NywiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9yLWRldGFpbCIsImdldDphY3RvcnMiLCJnZXQ6bW92aWUtZGV0YWlsIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.uZDoidey3IyZeNL0I96wOB5mbDilJsIk7Y1BOf7o6TBrumkAPTLAVX0oO8so1iv97EfOdKgiXF_i0D0FHYctGCvk9w-2xB9EFoSCjK7SkIV1ZqpvkdXC-htjcgC21TC8eWE9966ic7bYOOo5tr-5HrpUgxxIvSbhqA5n_Kaw4Mih-KXCqeSQe4tCRvfhDR2sgKi2iqDR6Ua0sr27FNpy2NVMSr52uAbAcK55NPrkAqbqOtARSInN_UpLYpmqS7S8m66Wj16QPngSlfe79l6PFIa-bCmSL_qjKZegdUbOPhEz88p_8eUtPurITm9v1jM1iocNoKA0htJFmHDBUP7lGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/7",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NjA1NDcsImV4cCI6MTY4Mzk2Nzc0NywiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9yLWRldGFpbCIsImdldDphY3RvcnMiLCJnZXQ6bW92aWUtZGV0YWlsIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.uZDoidey3IyZeNL0I96wOB5mbDilJsIk7Y1BOf7o6TBrumkAPTLAVX0oO8so1iv97EfOdKgiXF_i0D0FHYctGCvk9w-2xB9EFoSCjK7SkIV1ZqpvkdXC-htjcgC21TC8eWE9966ic7bYOOo5tr-5HrpUgxxIvSbhqA5n_Kaw4Mih-KXCqeSQe4tCRvfhDR2sgKi2iqDR6Ua0sr27FNpy2NVMSr52uAbAcK55NPrkAqbqOtARSInN_UpLYpmqS7S8m66Wj16QPngSlfe79l6PFIa-bCmSL_qjKZegdUbOPhEz88p_8eUtPurITm9v1jM1iocNoKA0htJFmHDBUP7lGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NjA1NDcsImV4cCI6MTY4Mzk2Nzc0NywiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9yLWRldGFpbCIsImdldDphY3RvcnMiLCJnZXQ6bW92aWUtZGV0YWlsIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.uZDoidey3IyZeNL0I96wOB5mbDilJsIk7Y1BOf7o6TBrumkAPTLAVX0oO8so1iv97EfOdKgiXF_i0D0FHYctGCvk9w-2xB9EFoSCjK7SkIV1ZqpvkdXC-htjcgC21TC8eWE9966ic7bYOOo5tr-5HrpUgxxIvSbhqA5n_Kaw4Mih-KXCqeSQe4tCRvfhDR2sgKi2iqDR6Ua0sr27FNpy2NVMSr52uAbAcK55NPrkAqbqOtARSInN_UpLYpmqS7S8m66Wj16QPngSlfe79l6PFIa-bCmSL_qjKZegdUbOPhEz88p_8eUtPurITm9v1jM1iocNoKA0htJFmHDBUP7lGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Surya\",\r\n    \"gender\": \"Male\",\r\n    \"dob\": \"1989-09-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/<actor-id>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NjA1NDcsImV4cCI6MTY4Mzk2Nzc0NywiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9yLWRldGFpbCIsImdldDphY3RvcnMiLCJnZXQ6bW92aWUtZGV0YWlsIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.uZDoidey3IyZeNL0I96wOB5mbDilJsIk7Y1BOf7o6TBrumkAPTLAVX0oO8so1iv97EfOdKgiXF_i0D0FHYctGCvk9w-2xB9EFoSCjK7SkIV1ZqpvkdXC-htjcgC21TC8eWE9966ic7bYOOo5tr-5HrpUgxxIvSbhqA5n_Kaw4Mih-KXCqeSQe4tCRvfhDR2sgKi2iqDR6Ua0sr27FNpy2NVMSr52uAbAcK55NPrkAqbqOtARSInN_UpLYpmqS7S8m66Wj16QPngSlfe79l6PFIa-bCmSL_qjKZegdUbOPhEz88p_8eUtPurITm9v1jM1iocNoKA0htJFmHDBUP7lGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"dob\": \"1987-09-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/actors/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/<movie-id>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NjA1NDcsImV4cCI6MTY4Mzk2Nzc0NywiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9yLWRldGFpbCIsImdldDphY3RvcnMiLCJnZXQ6bW92aWUtZGV0YWlsIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.uZDoidey3IyZeNL0I96wOB5mbDilJsIk7Y1BOf7o6TBrumkAPTLAVX0oO8so1iv97EfOdKgiXF_i0D0FHYctGCvk9w-2xB9EFoSCjK7SkIV1ZqpvkdXC-htjcgC21TC8eWE9966ic7bYOOo5tr-5HrpUgxxIvSbhqA5n_Kaw4Mih-KXCqeSQe4tCRvfhDR2sgKi2iqDR6Ua0sr27FNpy2NVMSr52uAbAcK55NPrkAqbqOtARSInN_UpLYpmqS7S8m66Wj16QPngSlfe79l6PFIa-bCmSL_qjKZegdUbOPhEz88p_8eUtPurITm9v1jM1iocNoKA0htJFmHDBUP7lGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"release_date\": \"2023-09-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxVVEdaRVk2aHUwdE5Xd0xHc0xDeiJ9.eyJpc3MiOiJodHRwczovL3ZpdGh5YS11ZGFjaXR5LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MWViZjc0NzM5OTc2Yjc0NzBlMmM5ZSIsImF1ZCI6ImNhc3RpbmdhZ2VuY3kiLCJpYXQiOjE2ODM5NjA1NDcsImV4cCI6MTY4Mzk2Nzc0NywiYXpwIjoiTUQxVTJncUVQVUpYcmx1NkZaV1JFNW00dUlBQ2lkTGgiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9yLWRldGFpbCIsImdldDphY3RvcnMiLCJnZXQ6bW92aWUtZGV0YWlsIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.uZDoidey3IyZeNL0I96wOB5mbDilJsIk7Y1BOf7o6TBrumkAPTLAVX0oO8so1iv97EfOdKgiXF_i0D0FHYctGCvk9w-2xB9EFoSCjK7SkIV1ZqpvkdXC-htjcgC21TC8eWE9966ic7bYOOo5tr-5HrpUgxxIvSbhqA5n_Kaw4Mih-KXCqeSQe4tCRvfhDR2sgKi2iqDR6Ua0sr27FNpy2NVMSr52uAbAcK55NPrkAqbqOtARSInN_UpLYpmqS7S8m66Wj16QPngSlfe79l6PFIa-bCmSL_qjKZegdUbOPhEz88p_8eUtPurITm9v1jM1iocNoKA0htJFmHDBUP7lGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" :\"1947\",\r\n    \"release_date\": \"2023-04-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:5000",
+			"type": "string"
+		}
+	]
+}
