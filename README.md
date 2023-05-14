@@ -1,6 +1,6 @@
 # Casting Agency
 
-Heroku Link: https://ry-fsnd-capstone.herokuapp.com
+Render Link: https://capstonefinal-deployment.onrender.com
 
 While running locally: http://localhost:5000
 
