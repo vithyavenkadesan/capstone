@@ -1,5 +1,14 @@
 # Casting Agency
 
+## Description
+
+This project demonstrates the backend of casting agency portal, enabling casting agency workers to create actor and movie profiles, search and amend them based on the requirement . The backend is designed to work for three types of users: casting assistants, casting directors and executive producers.
+
+Executive producers can post, update, query and delete their actors and movie profiles. Casting Directors can query, post, update and delete actors and query and amend movie profiles. Casting assistannt can only see the actor and movie profile information. Users must be authorized to be able to perform role-based requests to the backend via API described below. 
+
+Authorization of users is enabled via Auth0 in which three seperate roles (casting assistants, casting directors and executive producers) have been created and assigned seperate permissions. 
+
+
 Render Link: https://capstonefinal-deployment.onrender.com
 
 While running locally: http://localhost:5000
